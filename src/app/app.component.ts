@@ -7,5 +7,10 @@ import { Component } from '@angular/core';;
 })
 export class AppComponent {
 
+  selectedSite = 'Home';
+
+  changeSite(newSite: string) {
+    this.selectedSite = newSite;
+  }
 }
 

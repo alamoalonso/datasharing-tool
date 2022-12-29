@@ -9,23 +9,31 @@
 
   <CDBSidebarContent>
       <CDBSidebarMenu class="sidebar-content">
-          <CDBSidebarMenuItem link='/home' icon="home" >
-              <span (click)="onHomeClick()">
-                Home
-              </span>
+        <div (click)="onHomeClick()">
+          <CDBSidebarMenuItem link='/home' icon="user">
+              <span>Home</span>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem link='/library' icon="book" >
-            <span (click)="onLibraryClick()">Use Case Library</span>
+        </div>
+        <div (click)="onLibraryClick()">
+          <CDBSidebarMenuItem link='/library' icon="book">
+            <span>Use Case Library</span>
           </CDBSidebarMenuItem>
+        </div>
+        <div (click)="onUploadNewCaseClick()">
           <CDBSidebarMenuItem link='/upload-new-case' icon="upload" >
-            <span (click)="onUploadNewCaseClick()">Upload new Case</span>
+            <span>Upload new Case</span>
           </CDBSidebarMenuItem>
+        </div>
+        <div (click)="onMyProfileClick()">
           <CDBSidebarMenuItem link='/profile' icon="user" >
-            <span (click)="onMyProfileClick()">My Profile</span>
+            <span>My Profile</span>
           </CDBSidebarMenuItem>
+        </div>
+        <div (click)="onHelpClick()">
           <CDBSidebarMenuItem link="/help" icon="question" >
-            <span (click)="onHelpClick()">Help</span>
+            <span>Help</span>
           </CDBSidebarMenuItem>
+        </div>
       </CDBSidebarMenu>
   </CDBSidebarContent>
   <div class="mt-auto">

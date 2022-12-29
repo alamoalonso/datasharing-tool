@@ -1,12 +1,16 @@
 <div class="container-fluid h-100">
   <div class="row h-100">
     <div class="col-md-auto p-0" id="sidebar">
-      <app-sidebar></app-sidebar>
+      <app-sidebar (changedSite)="changeSite($event)"></app-sidebar>
     </div>
     <div class="col p-0" style="height: 73.5px;">
-        <app-header></app-header>
+        <app-header [title]="selectedSite"></app-header>
       <div class="container-fluid p-4" id="main-content">
-        <!-- main content goes here -->
+        <app-home *ngIf="selectedSite === 'Home'"></app-home>
+        <app-use-case-library *ngIf="selectedSite === 'Use Case Library'"></app-use-case-library>
+        <app-upload-new-case *ngIf="selectedSite === 'Upload new Case'"></app-upload-new-case>
+        <app-my-profile *ngIf="selectedSite === 'My Profile'"></app-my-profile>
+        <app-help *ngIf="selectedSite === 'Help'"></app-help>
       </div>
     </div>
   </div>

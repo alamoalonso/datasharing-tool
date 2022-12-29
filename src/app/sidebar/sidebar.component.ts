@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,24 +7,26 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
-  onHomeClick() {
+  @Output() changedSite = new EventEmitter<string>()
 
+  onHomeClick() {
+    this.changedSite.emit('Home');
   }
 
   onLibraryClick() {
-
+    this.changedSite.emit('Use Case Library');
   }
 
   onUploadNewCaseClick() {
-
+    this.changedSite.emit('Upload new Case');
   }
 
   onMyProfileClick() {
-
+    this.changedSite.emit('My Profile');
   }
 
   onHelpClick() {
-
+    this.changedSite.emit('Help');
   }
 
   onFooterClick() {
