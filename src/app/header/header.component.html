@@ -1,0 +1,19 @@
+<header>
+  <CDBNavbar style="height: 73.5px; background-color: #333333; color: #ffffff;"
+             dark="true"
+             double="true">
+    <CDBNavbarNav left="true">
+      <span style="padding-left: 30px;"> {{ title }} </span>
+    </CDBNavbarNav>
+    <CDBNavbarNav right="true">
+      <CDBNavItem>
+       <CDBBtn color="white" outline="dark">
+        <span role="button" (click)="onLogInClick()">
+          <i class="fa-solid fa-user"></i>
+          Log In
+        </span>
+       </CDBBtn>
+      </CDBNavItem>
+    </CDBNavbarNav>
+  </CDBNavbar>
+</header>
