@@ -1,0 +1,39 @@
+<CDBSidebar textColor="#ffffff" backgroundColor="#333333">
+  <CDBSidebarHeader [prefix]="icon" >
+      <ng-template #icon>
+          <i class="fa fa-bars fa-large"></i>
+      </ng-template>
+
+      DataSharingTool
+  </CDBSidebarHeader>
+
+  <CDBSidebarContent>
+      <CDBSidebarMenu class="sidebar-content">
+          <CDBSidebarMenuItem link='/home' icon="home" >
+              <span (click)="onHomeClick()">
+                Home
+              </span>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem link='/library' icon="book" >
+            <span (click)="onLibraryClick()">Use Case Library</span>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem link='/upload-new-case' icon="upload" >
+            <span (click)="onUploadNewCaseClick()">Upload new Case</span>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem link='/profile' icon="user" >
+            <span (click)="onMyProfileClick()">My Profile</span>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem link="/help" icon="question" >
+            <span (click)="onHelpClick()">Help</span>
+          </CDBSidebarMenuItem>
+      </CDBSidebarMenu>
+  </CDBSidebarContent>
+  <div class="mt-auto">
+
+      <CDBSidebarFooter style="text-align: center; margin-top: auto;">
+          <div class="sidebar-btn-wrapper" style="padding: 20px 5px">
+            <span (click)="onFooterClick()" role="button">About</span>
+          </div>
+      </CDBSidebarFooter>
+  </div>
+</CDBSidebar>
