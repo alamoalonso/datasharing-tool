@@ -15,6 +15,9 @@ import { UseCaseLibraryComponent } from './sites/use-case-library/use-case-libra
 import { UploadNewCaseComponent } from './sites/upload-new-case/upload-new-case.component';
 import { MyProfileComponent } from './sites/my-profile/my-profile.component';
 import { HelpComponent } from './sites/help/help.component';
+import { SearchFilterComponent } from './sites/use-case-library/search-filter/search-filter.component';
+import { UseCaseListComponent } from './sites/use-case-library/use-case-list/use-case-list.component';
+import { UseCaseItemComponent } from './sites/use-case-library/use-case-list/use-case-item/use-case-item.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { HelpComponent } from './sites/help/help.component';
     UploadNewCaseComponent,
     MyProfileComponent,
     HelpComponent,
+    SearchFilterComponent,
+    UseCaseListComponent,
+    UseCaseItemComponent,
   ],
   imports: [
     BrowserModule,

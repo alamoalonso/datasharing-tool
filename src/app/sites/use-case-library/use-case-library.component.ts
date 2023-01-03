@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usecase } from '../shared/usecase.model';
 
 @Component({
   selector: 'app-use-case-library',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./use-case-library.component.css']
 })
 export class UseCaseLibraryComponent {
+
+  useCases: Usecase[] = [];
+  sortedUseCases: Usecase[] = this.useCases;
 
 }

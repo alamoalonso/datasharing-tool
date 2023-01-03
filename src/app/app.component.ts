@@ -7,7 +7,7 @@ import { Component } from '@angular/core';;
 })
 export class AppComponent {
 
-  selectedSite = 'Home';
+  selectedSite = 'Use Case Library';
 
   changeSite(newSite: string) {
     this.selectedSite = newSite;

@@ -100,21 +100,25 @@ export class Usecase{
       if (Array.isArray(c1_entries[i][1])){
         if (c1_entries[i][1].length > c2_entries[i][1].length){
           for (let k = 0; k < c2_entries[i][1].length; k++){
-            if (c1_entries[i][1][k] == c2_entries[i][1][k]){
+            if (c1_entries[i][1].includes(c2_entries[i][1][k])){
               matchingDimensions++;
             }
           allDimensions = allDimensions + c1_entries[i][1].length;
           }
         } else {
             for(let k = 0; k < c1_entries[i][1].length; k++){
-              if (c1_entries[i][1][k] == c2_entries[i][1][k]){
+              if (c2_entries[i][1].includes(c1_entries[i][1][k])){
                 matchingDimensions++;
               }
             allDimensions = allDimensions + c2_entries[i][1].length;
             }
         }
       } else {
-        if (c1_entries[i][1] == c2_entries[i][1]) {
+        if (
+            (c1_entries[i][1].toLowerCase().includes(c2_entries[i][1].toLowerCase()) ||
+             c2_entries[i][1].toLowerCase().includes(c1_entries[i][1].toLowerCase())) &&
+            (typeof c1_entries[i][1] === 'string' && typeof c2_entries[i][1] === 'string')
+            ) {
           matchingDimensions++;
           allDimensions++;
         } else{

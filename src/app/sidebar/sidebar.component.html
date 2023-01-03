@@ -3,14 +3,15 @@
       <ng-template #icon>
           <i class="fa fa-bars fa-large"></i>
       </ng-template>
-
-      DataSharingTool
+      <a role="button" (click)="onHomeClick()">
+        Title
+      </a>
   </CDBSidebarHeader>
 
   <CDBSidebarContent>
       <CDBSidebarMenu class="sidebar-content">
         <div (click)="onHomeClick()">
-          <CDBSidebarMenuItem link='/home' icon="user">
+          <CDBSidebarMenuItem link='/home' icon="home">
               <span>Home</span>
           </CDBSidebarMenuItem>
         </div>
@@ -40,7 +41,7 @@
 
       <CDBSidebarFooter style="text-align: center; margin-top: auto;">
           <div class="sidebar-btn-wrapper" style="padding: 20px 5px">
-            <span (click)="onFooterClick()" role="button">About</span>
+            <a (click)="onFooterClick()" role="button">About</a>
           </div>
       </CDBSidebarFooter>
   </div>
