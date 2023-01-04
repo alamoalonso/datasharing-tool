@@ -1,0 +1,13 @@
+<div class="dropdown mb-2 mr-sm-2">
+  <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{ dimension }}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div *ngFor="let char of characteristics" class="form-check dropdown-item">
+      <input class="form-check-input" type="checkbox" [value]="char" id="{{ char }}">
+      <label class="form-check-label" for="{{ char }}">
+        {{ char }}
+      </label>
+    </div>
+  </div>
+</div>

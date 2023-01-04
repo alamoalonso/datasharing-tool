@@ -18,6 +18,8 @@ import { HelpComponent } from './sites/help/help.component';
 import { SearchFilterComponent } from './sites/use-case-library/search-filter/search-filter.component';
 import { UseCaseListComponent } from './sites/use-case-library/use-case-list/use-case-list.component';
 import { UseCaseItemComponent } from './sites/use-case-library/use-case-list/use-case-item/use-case-item.component';
+import { DropdownCheckboxComponent } from './sites/use-case-library/search-filter/dropdown-checkbox/dropdown-checkbox.component';
+import { DropdownRadioComponent } from './sites/use-case-library/search-filter/dropdown-radio/dropdown-radio.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { UseCaseItemComponent } from './sites/use-case-library/use-case-list/use
     SearchFilterComponent,
     UseCaseListComponent,
     UseCaseItemComponent,
+    DropdownCheckboxComponent,
+    DropdownRadioComponent,
   ],
   imports: [
     BrowserModule,

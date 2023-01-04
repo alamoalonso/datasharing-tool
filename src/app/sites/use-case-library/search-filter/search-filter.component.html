@@ -15,137 +15,38 @@
   <div class="collapse show" id="advancedFiltersettings">
     <div class="form-row">
       <form class="form-inline">
-        <div class="dropdown mb-2 mr-sm-2">
-          <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Data type
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="process">
-              <label class="form-check-label" for="process">
-                Process
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="product">
-              <label class="form-check-label" for="product">
-                Product
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="environment">
-              <label class="form-check-label" for="environment">
-                Environment
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="human">
-              <label class="form-check-label" for="human">
-                Human
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="other">
-              <label class="form-check-label" for="other">
-                Other
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="dropdown mb-2 mr-sm-2">
-          <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Maturity of processing
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="raw data">
-              <label class="form-check-label" for="raw data">
-                Raw data
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="modified data">
-              <label class="form-check-label" for="modified data">
-                Modified data
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="enriched data">
-              <label class="form-check-label" for="enriched data">
-                Enriched data
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="processed data">
-              <label class="form-check-label" for="processed data">
-                Processed data
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="dropdown mb-2 mr-sm-2">
-          <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Data source
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="generated">
-              <label class="form-check-label" for="generated">
-                Generated
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="acquired">
-              <label class="form-check-label" for="acquired">
-                Acquired
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="customer-provided">
-              <label class="form-check-label" for="customer-provided">
-                Customer-provided
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="free available">
-              <label class="form-check-label" for="free available">
-                Free available
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="dropdown mb-2 mr-sm-2">
-          <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Privacy
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="radio" value="" id="public">
-              <label class="form-check-label" for="public">
-                Public
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="radio" value="" id="internal">
-              <label class="form-check-label" for="icquired">
-                Internal
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="radio" value="" id="confidential">
-              <label class="form-check-label" for="confidential">
-                Confidential
-              </label>
-            </div>
-            <div class="form-check dropdown-item">
-              <input class="form-check-input" type="radio" value="" id="sensitive">
-              <label class="form-check-label" for="sensitive">
-                Sensitive
-              </label>
-            </div>
-          </div>
-        </div>
+        <app-dropdown-checkbox [dimension]="'Data type'" [characteristics]="['Process', 'Product', 'Environment', 'Human', 'Other']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Maturity of processing'" [characteristics]="['Raw data', 'Modified data', 'Enriched data', 'Processed data']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Data source'" [characteristics]="['Generated', 'Acquired', 'Customer-provided', 'Free available']"></app-dropdown-checkbox>
+        <app-dropdown-radio [dimension]="'Privacy'" [characteristics]="['Public', 'Internal', 'Confidential', 'Sensitive']"></app-dropdown-radio>
+        <app-dropdown-radio [dimension]="'PII-relevance'" [characteristics]="['PII-relevant', 'Non-PII-relevant']"></app-dropdown-radio>
+        <app-dropdown-radio [dimension]="'Sovereignity'" [characteristics]="['Individual', 'Organizational', 'Shared']"></app-dropdown-radio>
+      </form>
+      <form class="form-inline">
+        <app-dropdown-checkbox [dimension]="'Timeframe'" [characteristics]="['Static', 'Up-to-Date', '(Near-) realtime']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Motivation'" [characteristics]="['Economic', 'Social & Ecological', 'Legal', 'Cultural']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Scope'" [characteristics]="['Intra-organizational', 'Same industry', 'Cross-industry']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Reward'" [characteristics]="['Financial', 'Virtual assest', 'Data', 'Service', 'Reputation', 'Other']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Payment model'" [characteristics]="['Free', 'Fixed', 'Subscription-based', 'Usage-based', 'Revenue-based', 'Hybrid']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Role'" [characteristics]="['Data-provider', 'Intermediary', 'Data consumer', 'Service broker']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Provision'" [characteristics]="['Closed API', 'Platform', 'Marketplace', 'Open API']"></app-dropdown-checkbox>
+      </form>
+      <form class="form-inline">
+        <app-dropdown-checkbox [dimension]="'Interoperability'" [characteristics]="['Legal', 'Organizational', 'Semantic', 'Technical']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Access coordination'" [characteristics]="['Agreement-based', 'Application-based', 'Trust-based', 'Open']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Frequency'" [characteristics]="['On demand', 'Event-based', 'Continuous']"></app-dropdown-checkbox>
+        <app-dropdown-checkbox [dimension]="'Purpose of usage'" [characteristics]="['Primary', 'Secondary', 'Tertiary', 'End use']"></app-dropdown-checkbox>
+        <app-dropdown-radio [dimension]="'Type of relationship'" [characteristics]="['One-to-one', 'One-to-many', 'Many-to-one', 'Many-to-many']"></app-dropdown-radio>
+      </form>
+      <form class="form-inline">
+        <app-dropdown-checkbox [dimension]="'Benefits'" [characteristics]="['Efficiency gains', 'Improved quality', 'New insights', 'New offerings']"></app-dropdown-checkbox>
+        <app-dropdown-radio [dimension]="'Initiating party'" [characteristics]="['Provider-initiated', 'Intermediary-initiated', 'Consumer-initiated', 'Service broker-initiated']"></app-dropdown-radio>
+        <app-dropdown-checkbox [dimension]="'Control authority'" [characteristics]="['Provider-controlled', 'Intermediary-controlled', 'Consumer-controlled', 'Service broker-controlled']"></app-dropdown-checkbox>
       </form>
     </div>
   </div>
 </form>
+<div class="row">
+  <button class="btn btn-danger mb-2 mr-sm-2" style="margin-left: 10px;">Clear filter</button>
+  <button class="btn btn-success mb-2 mr-sm-2">Filter cases</button>
+</div>
