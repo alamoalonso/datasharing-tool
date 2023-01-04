@@ -8,7 +8,5 @@ import { Usecase } from '../shared/usecase.model';
 })
 export class UseCaseLibraryComponent {
 
-  useCases: Usecase[] = [];
-  sortedUseCases: Usecase[] = this.useCases;
 
 }

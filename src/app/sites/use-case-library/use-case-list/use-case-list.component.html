@@ -1,1 +1,28 @@
-<p>use-case-list works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <a href="#" class="list-group-item list-group-item-secondary list-group-item-action">
+        <div class="row">
+          <div class="col-md-3">
+            Title
+          </div>
+          <div class="col-md-3">
+            Organization
+          </div>
+          <div class="col-md-3" style="text-align: center;">
+            Release year
+          </div>
+          <div class="col-md-3" style="text-align: right;">
+            Fit in %
+          </div>
+        </div>
+      </a>
+      <app-use-case-item
+      *ngFor="let case of sortedUseCases"
+      [useCase]="case"
+      [filterCase]="filterCase"
+      >
+      </app-use-case-item>
+    </ul>
+  </div>
+</div>

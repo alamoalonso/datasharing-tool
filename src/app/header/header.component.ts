@@ -11,7 +11,7 @@ export class HeaderComponent {
   @Input() title;
 
   onLogInClick() {
-    Usecase.caseSimilarity(new Usecase('case1', ['adidas'], null, ['shipping'], 'link', ['type'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null),
-    new Usecase('case4', ['nike'], null, null, 'link', ['type'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null));
+    Usecase.caseSimilarity(new Usecase('case1', ['adidas'], null, ['shipping'], '2017', 'link', ['type'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+    new Usecase('case4', ['nike'], null, null, '2017', 'link', ['type'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null));
   }
 }

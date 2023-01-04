@@ -1,28 +1,28 @@
-<form>
+
   <div class="form-row">
-    <form class="form-inline">
-      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Filter for title" id="title">
-      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Filter for organization" id="organization">
-      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Filter for industry" id="industry">
-      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Filter for release year" id="release year">
-    </form>
+    <div class="form-inline">
+      <input type="text" (keyup)="titleChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for title" id="title">
+      <input type="text" (keyup)="organizationChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for organization" id="organization">
+      <input type="text" (keyup)="industriesChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for industry" id="industry">
+      <input type="text" (keyup)="yopChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for year of publication" id="year of publication">
+    </div>
   </div>
   <div class="form-row">
     <a class="mb-2 mr-sm-2" href="#advancedFiltersettings" data-toggle="collapse" aria-expanded="false" aria-controls="advancedFiltersettings">
       Advanced filter settings
     </a>
   </div>
-  <div class="collapse show" id="advancedFiltersettings">
+  <div class="collapse" id="advancedFiltersettings">
     <div class="form-row">
-      <form class="form-inline">
+      <div class="form-inline">
         <app-dropdown-checkbox [dimension]="'Data type'" [characteristics]="['Process', 'Product', 'Environment', 'Human', 'Other']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Maturity of processing'" [characteristics]="['Raw data', 'Modified data', 'Enriched data', 'Processed data']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Data source'" [characteristics]="['Generated', 'Acquired', 'Customer-provided', 'Free available']"></app-dropdown-checkbox>
         <app-dropdown-radio [dimension]="'Privacy'" [characteristics]="['Public', 'Internal', 'Confidential', 'Sensitive']"></app-dropdown-radio>
         <app-dropdown-radio [dimension]="'PII-relevance'" [characteristics]="['PII-relevant', 'Non-PII-relevant']"></app-dropdown-radio>
         <app-dropdown-radio [dimension]="'Sovereignity'" [characteristics]="['Individual', 'Organizational', 'Shared']"></app-dropdown-radio>
-      </form>
-      <form class="form-inline">
+      </div>
+      <div class="form-inline">
         <app-dropdown-checkbox [dimension]="'Timeframe'" [characteristics]="['Static', 'Up-to-Date', '(Near-) realtime']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Motivation'" [characteristics]="['Economic', 'Social & Ecological', 'Legal', 'Cultural']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Scope'" [characteristics]="['Intra-organizational', 'Same industry', 'Cross-industry']"></app-dropdown-checkbox>
@@ -30,23 +30,23 @@
         <app-dropdown-checkbox [dimension]="'Payment model'" [characteristics]="['Free', 'Fixed', 'Subscription-based', 'Usage-based', 'Revenue-based', 'Hybrid']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Role'" [characteristics]="['Data-provider', 'Intermediary', 'Data consumer', 'Service broker']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Provision'" [characteristics]="['Closed API', 'Platform', 'Marketplace', 'Open API']"></app-dropdown-checkbox>
-      </form>
-      <form class="form-inline">
+      </div>
+      <div class="form-inline">
         <app-dropdown-checkbox [dimension]="'Interoperability'" [characteristics]="['Legal', 'Organizational', 'Semantic', 'Technical']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Access coordination'" [characteristics]="['Agreement-based', 'Application-based', 'Trust-based', 'Open']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Frequency'" [characteristics]="['On demand', 'Event-based', 'Continuous']"></app-dropdown-checkbox>
         <app-dropdown-checkbox [dimension]="'Purpose of usage'" [characteristics]="['Primary', 'Secondary', 'Tertiary', 'End use']"></app-dropdown-checkbox>
         <app-dropdown-radio [dimension]="'Type of relationship'" [characteristics]="['One-to-one', 'One-to-many', 'Many-to-one', 'Many-to-many']"></app-dropdown-radio>
-      </form>
-      <form class="form-inline">
+      </div>
+      <div class="form-inline">
         <app-dropdown-checkbox [dimension]="'Benefits'" [characteristics]="['Efficiency gains', 'Improved quality', 'New insights', 'New offerings']"></app-dropdown-checkbox>
         <app-dropdown-radio [dimension]="'Initiating party'" [characteristics]="['Provider-initiated', 'Intermediary-initiated', 'Consumer-initiated', 'Service broker-initiated']"></app-dropdown-radio>
         <app-dropdown-checkbox [dimension]="'Control authority'" [characteristics]="['Provider-controlled', 'Intermediary-controlled', 'Consumer-controlled', 'Service broker-controlled']"></app-dropdown-checkbox>
-      </form>
+      </div>
     </div>
   </div>
-</form>
+
 <div class="row">
   <button class="btn btn-danger mb-2 mr-sm-2" style="margin-left: 10px;">Clear filter</button>
-  <button class="btn btn-success mb-2 mr-sm-2">Filter cases</button>
+  <button class="btn btn-success mb-2 mr-sm-2" (click)="onFilterCases()">Filter cases</button>
 </div>

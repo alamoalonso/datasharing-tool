@@ -1,9 +1,10 @@
 
 export class Usecase{
-  public case_name: string;
+  public title: string;
   public organizations: string[];
   public contact_person: {name: string, email: string} | null;
   public industries: string[] | null;
+  public year_of_publication: string | null;
   public link: string | null;
   public type: string[] | null;
   public maturity_of_processing: string[] | null;
@@ -26,13 +27,14 @@ export class Usecase{
   public benefits: string[] | null;
   public initiating_party: string[] | null;
   public control_authority: string[] | null;
-  public static numDimensions = 26;
+  public static numDimensions = 27;
 
   constructor(
-    case_name: string,
+    title: string,
     organizations: string[],
     contact_person: {name: string | null, email: string | null} | null,
     industries: string[] | null,
+    year_of_publication: string | null,
     link: string | null,
     type: string[] | null,
     maturity_of_processing: string[] | null,
@@ -56,10 +58,11 @@ export class Usecase{
     initiating_party: string[] | null,
     control_authority: string[] | null
 ) {
-    this.case_name = case_name;
+    this.title = title;
     this.organizations = organizations;
     this.contact_person = contact_person;
     this.industries = industries;
+    this.year_of_publication = year_of_publication;
     this.link = link;
     this.type = type;
     this.maturity_of_processing = maturity_of_processing;
