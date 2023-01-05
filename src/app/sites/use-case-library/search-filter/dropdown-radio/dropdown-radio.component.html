@@ -4,7 +4,7 @@
   </button>
   <div class="dropdown-menu">
     <div *ngFor="let char of characteristics" class="form-check dropdown-item">
-      <input class="form-check-input" type="radio" [name]="dimension" value="char" id="{{ char }}">
+      <input class="form-check-input" (change)="onCharChange(char)" type="radio" [name]="dimension" value="char" id="{{ char }}">
       <label class="form-check-label" for="{{ char }}">
         {{ char }}
       </label>

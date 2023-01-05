@@ -5,7 +5,7 @@
   <form>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div *ngFor="let char of characteristics" class="form-check dropdown-item">
-        <input class="form-check-input" formControlName="{{ char }}" type="checkbox" [value]="char" id="{{ char }}">
+        <input (change)="onCharChange(char)" class="form-check-input" formControlName="{{ char }}" type="checkbox" [value]="char" id="{{ char }}">
         <label class="form-check-label" for="{{ char }}">
           {{ char }}
         </label>

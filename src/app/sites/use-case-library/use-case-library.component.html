@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-search-filter></app-search-filter>
+      <app-search-filter (filterCase)="updateFilCase($event)"></app-search-filter>
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="col-md-12">
-      <app-use-case-list></app-use-case-list>
+      <app-use-case-list [filterCase]="filCase" [sortedUseCases]="sortedCases"></app-use-case-list>
     </div>
   </div>
 </div>

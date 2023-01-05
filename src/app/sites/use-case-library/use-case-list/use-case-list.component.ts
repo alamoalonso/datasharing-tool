@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Usecase } from '../../shared/usecase.model';
 
 @Component({
@@ -8,8 +8,7 @@ import { Usecase } from '../../shared/usecase.model';
 })
 export class UseCaseListComponent {
 
-  useCases: Usecase[];
-  sortedUseCases: Usecase[] = [];
-  filterCase: Usecase;
+  @Input() sortedUseCases: Usecase[];
+  @Input() filterCase: Usecase;
 
 }

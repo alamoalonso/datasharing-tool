@@ -13,14 +13,7 @@ export class UseCaseItemComponent {
   @Input() filterCase: Usecase;
 
   listOrganizations() {
-    let organizations = this.useCase.organizations;
-    let str: string = '';
-    for (let index = 0; index < organizations.length - 1; index++) {
-      str = str + organizations[index] + ', ';
-    }
-    str = str + organizations[organizations.length];
-
-    return str
+    return String(this.useCase.organizations);
   }
 
   computeFit() {
