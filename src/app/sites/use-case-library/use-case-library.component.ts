@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { Usecase } from '../shared/usecase.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Usecase } from '../shared/usecase.model';
   templateUrl: './use-case-library.component.html',
   styleUrls: ['./use-case-library.component.css']
 })
-export class UseCaseLibraryComponent {
+export class UseCaseLibraryComponent{
 
   useCases: Usecase[] = [
     new Usecase('Secondary Use Health Data', ['Open Data Institute'], {name: 'Mark Boyd', email:'policy@theodi.org'}, ['Health'], '2021', null, ['Other'], ['Processed data'], ['Generated'], ['Sensitive'], ['PII-relevant'], ['Individual'], ['Static', 'Up-to-date', '(Near-) realtime'], ['Social & Ecological', 'Economic'], ['Same industry'], ['Service', 'Data'], null, null, null, ['Legal', 'Organizational', 'Semantic', 'Technical'], null, ['Continuous'], ['Secondary'], ['Many-to-many'], ['Efficiency gains', 'Improved quality', 'New insights', 'New offerings'], null, null)

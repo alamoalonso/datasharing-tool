@@ -138,10 +138,6 @@ export class Usecase{
 
   public static removeNullValues (list1: [string, any][], list2: [string, any][]) {
 
-    console.log(list1.length);
-    console.log(list2.length);
-    console.log(list1);
-    console.log(list2);
     let newlist1 = [];
     let newlist2 = [];
 
