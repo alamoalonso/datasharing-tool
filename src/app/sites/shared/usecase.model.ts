@@ -1,6 +1,7 @@
 
 export class Usecase{
   public title: string;
+  public description: string;
   public organizations: string[];
   public contact_person: {name: string, email: string} | null;
   public industries: string[] | null;
@@ -31,6 +32,7 @@ export class Usecase{
 
   constructor(
     title: string,
+    description: string,
     organizations: string[],
     contact_person: {name: string | null, email: string | null} | null,
     industries: string[] | null,
@@ -59,6 +61,7 @@ export class Usecase{
     control_authority: string[] | null
 ) {
     this.title = title;
+    this.description = description;
     this.organizations = organizations;
     this.contact_person = contact_person;
     this.industries = industries;
@@ -131,7 +134,6 @@ export class Usecase{
     }
 
     let matchingRate = matchingDimensions / allDimensions;
-    console.log('Matching rate :' + matchingRate)
     return matchingRate;
 
   }
@@ -142,14 +144,10 @@ export class Usecase{
     let newlist2 = [];
 
     for (let i = 0; i < this.numDimensions; i++) {
-      console.log('Element Liste 1: ' + list1[i][1])
-      console.log('Element Liste 2: ' + list2[i][1])
       if (list1[i][1] !== null && list2[i][1] !== null){
-        console.log('Dimension ' + list1[i][0] + ' wird der neuen Liste hinzugefügt.');
         newlist1.push(list1[i]);
         newlist2.push(list2[i]);
       } else {
-        console.log('Dimension ' + list1[i][0] + ' wird der neuen Liste nicht hinzugefügt.');
       }
 
     }

@@ -12,14 +12,19 @@ export class UseCaseItemComponent implements OnInit {
   @Input() useCase: Usecase;
   @Input() filterCase: Usecase;
 
+  ID_normal: string;
+  ID_hash: string;
   useCaseProperties: [string, any][];
   clearedProperties: [string, any][];
 
-  blockedProps = ['title', 'organizations', 'contact_person', 'industries', 'year_of_publication'];
+  blockedProps = ['title', 'description', 'organizations', 'contact_person', 'industries', 'year_of_publication', 'link'];
 
   ngOnInit() {
     this.useCaseProperties = Object.entries(this.useCase);
     this.clearedProperties = this.useCaseProperties.filter(item => (item[1] !== null && !this.blockedProps.includes(item[0])));
+    this.ID_normal = this.useCase.title.replace(/ /g, '');
+    this.ID_hash = '#' + this.ID_normal;
+    console.log(this.ID_hash + ', ' + this.ID_normal)
   }
 
   arToStr(prop: string[]) {

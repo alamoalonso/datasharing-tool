@@ -1,5 +1,10 @@
 <li class="list-group-item">
-  <a href="#caseInfo" class="text-reset" data-toggle="collapse" aria-expanded="false" aria-controls="caseInfo">
+  <a
+  href="{{ ID_hash }}"
+  class="text-reset"
+  data-toggle="collapse"
+  aria-expanded="false"
+  attr.aria-controls="{{ ID_normal }}">
     <div class="row">
       <div class="col-md-3">
         {{ useCase.title }}
@@ -7,22 +12,22 @@
       <div class="col-md-3">
         {{ arToStr(useCase.organizations) }}
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         {{ useCase.industries.toString() }}
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" style="text-align: right;">
         {{ useCase.year_of_publication }}
       </div>
-      <div class="col-md-1" style="text-align: right;">
+      <div class="col-md-2" style="text-align: right;">
         {{ computeFit() }}
       </div>
     </div>
   </a>
-  <div class="container collapse" id="caseInfo">
+  <div class="container collapse" id="{{ ID_normal }}">
     <hr>
     <div class="row">
       <p>
-        The report, researched and produced by the Open Data Institute (ODI), focuses on the importance of secondary use of health data in Europe to help respond to the many urgent challenges facing society and economy today. It states that by reusing health data in different ways, we can increase the value of this data and help to enable improvements in population health, more efficient healthcare systems, and foster innovation. The report identifies 22 key policy components needed to achieve a trusted and trustworthy data ecosystem and provides an evaluation of the quality of policy activity for each component. The report is independent work by the ODI that was commissioned by Roche.
+        {{ useCase.description }}
       </p>
     </div>
     <div class="row">

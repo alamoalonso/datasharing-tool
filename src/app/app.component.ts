@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component } from '@angular/core';
+import { AfterContentChecked, Component, NgZone, OnChanges, SimpleChanges } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -6,7 +6,13 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent implements OnChanges{
+
+  constructor(private zone: NgZone) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.zone.run(() => console.log('Ran zone'));
+  }
 
   selectedSite = 'Home';
 

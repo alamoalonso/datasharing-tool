@@ -40,6 +40,7 @@ export class SearchFilterComponent {
     this.filterCase.emit(
       new Usecase(
         this.title,
+        null,
         this.organizations,
         null,
         this.industries,
