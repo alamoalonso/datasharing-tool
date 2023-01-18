@@ -1,9 +1,15 @@
 
-  <div class="form-row">
-    <div class="form-inline">
+  <div class="row">
+    <div class="col-md-3">
       <input type="text" (keyup)="titleChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for title" id="title">
+    </div>
+    <div class="col-md-3">
       <input type="text" (keyup)="organizationChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for organization" id="organization">
+    </div>
+    <div class="col-md-3">
       <input type="text" (keyup)="industriesChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for industry" id="industry">
+    </div>
+    <div class="col-md-3">
       <input type="text" (keyup)="yopChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for year of publication" id="year of publication">
     </div>
   </div>
@@ -47,6 +53,8 @@
   </div>
 
 <div class="row">
-  <button class="btn btn-light mb-2 mr-sm-2" style="margin-left: 654px;">Clear filter</button>
-  <button class="btn btn-dark mb-2 mr-sm-2" (click)="onFilterCases()">Filter cases</button>
+  <div class="col-md-12 text-right">
+    <button class="btn btn-light" style="margin-right: 3px;">Clear filter</button>
+    <button class="btn btn-dark" (click)="onFilterCases()">Search</button>
+  </div>
 </div>
