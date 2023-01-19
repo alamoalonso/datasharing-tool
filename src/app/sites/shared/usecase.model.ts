@@ -28,7 +28,7 @@ export class Usecase{
   public benefits: string[] | null;
   public initiating_party: string[] | null;
   public control_authority: string[] | null;
-  public static numDimensions = 27;
+  public static numDimensions = 28;
 
   constructor(
     title: string,

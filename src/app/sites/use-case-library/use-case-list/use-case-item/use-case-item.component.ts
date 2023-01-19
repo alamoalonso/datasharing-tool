@@ -24,7 +24,6 @@ export class UseCaseItemComponent implements OnInit {
     this.clearedProperties = this.useCaseProperties.filter(item => (item[1] !== null && !this.blockedProps.includes(item[0])));
     this.ID_normal = this.useCase.title.replace(/ /g, '');
     this.ID_hash = '#' + this.ID_normal;
-    console.log(this.ID_hash + ', ' + this.ID_normal)
   }
 
   arToStr(prop: string[]) {

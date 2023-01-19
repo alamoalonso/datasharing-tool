@@ -23,7 +23,17 @@ export class DropdownCheckboxComponent{
       this.checkedChars = this.checkedChars.filter(char => char !== charac)
     }
 
-    console.log(this.checkedChars);
+    this.checkedChanged.emit(this.checkedChars);
+  }
+
+  reset() {
+    this.checkedChars = [];
+
+    for(const charac of this.characteristics) {
+      const check = document.getElementById(charac) as HTMLInputElement;
+      check.checked = false;
+    }
+
     this.checkedChanged.emit(this.checkedChars);
   }
 

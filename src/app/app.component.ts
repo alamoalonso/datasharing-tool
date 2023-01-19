@@ -6,15 +6,9 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges{
+export class AppComponent{
 
-  constructor(private zone: NgZone) {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.zone.run(() => console.log('Ran zone'));
-  }
-
-  selectedSite = 'Home';
+  selectedSite = 'Upload new Case';
 
   changeSite(newSite: string) {
     this.selectedSite = newSite;

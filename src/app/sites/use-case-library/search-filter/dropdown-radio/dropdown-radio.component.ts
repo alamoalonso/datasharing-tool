@@ -18,4 +18,15 @@ export class DropdownRadioComponent {
     this.selectedChar = char;
     this.charChanged.emit(this.selectedChar);
   }
+
+  reset() {
+    this.selectedChar = '';
+
+    for(const charac of this.characteristics) {
+      const checkbox = document.getElementById(charac) as HTMLInputElement;
+      checkbox.checked = false;
+    }
+
+    this.charChanged.emit(this.selectedChar);
+  }
 }

@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { DropdownItemComponent } from 'ng-cdbangular';
 import { Usecase } from '../../shared/usecase.model';
+import { DropdownCheckboxComponent } from './dropdown-checkbox/dropdown-checkbox.component';
+import { DropdownRadioComponent } from './dropdown-radio/dropdown-radio.component';
 
 @Component({
   selector: 'app-search-filter',
@@ -35,6 +38,101 @@ export class SearchFilterComponent {
   public control_authority = null;
 
   @Output() filterCase: EventEmitter<Usecase> = new EventEmitter<Usecase>();
+
+  @ViewChild('title') titleRef: ElementRef;
+  @ViewChild('organization') orgRef: ElementRef;
+  @ViewChild('industry') indRef: ElementRef;
+  @ViewChild('yop') yopRef: ElementRef;
+  @ViewChild('type') typeRef: DropdownCheckboxComponent;
+  @ViewChild('mop') mopRef: DropdownCheckboxComponent;
+  @ViewChild('source') sourceRef: DropdownCheckboxComponent;
+  @ViewChild('privacy') privacyRef: DropdownRadioComponent;
+  @ViewChild('pii') piiRef: DropdownRadioComponent;
+  @ViewChild('sov') sovRef: DropdownRadioComponent;
+  @ViewChild('time') timeRef: DropdownCheckboxComponent;
+  @ViewChild('moti') motiRef: DropdownCheckboxComponent;
+  @ViewChild('scope') scopeRef: DropdownCheckboxComponent;
+  @ViewChild('reward') rewardRef: DropdownCheckboxComponent;
+  @ViewChild('pay') payRef: DropdownCheckboxComponent;
+  @ViewChild('prov') provRef: DropdownCheckboxComponent;
+  @ViewChild('role') roleRef: DropdownCheckboxComponent;
+  @ViewChild('inter') interRef: DropdownCheckboxComponent;
+  @ViewChild('acc') accRef: DropdownCheckboxComponent;
+  @ViewChild('freq') freqRef: DropdownCheckboxComponent;
+  @ViewChild('pou') pouRef: DropdownCheckboxComponent;
+  @ViewChild('tor') torRef: DropdownRadioComponent;
+  @ViewChild('bene') beneRef: DropdownCheckboxComponent;
+  @ViewChild('init') initRef: DropdownRadioComponent;
+  @ViewChild('control') controlRef: DropdownCheckboxComponent;
+
+  onClearFilter() {
+    this.titleRef.nativeElement.value = '';
+    this.title = null;
+
+    this.orgRef.nativeElement.value = '';
+    this.organizations = null;
+
+    this.indRef.nativeElement.value = '';
+    this.industries = null;
+
+    this.yopRef.nativeElement.value = '';
+    this.year_of_publication = null;
+
+    this.typeRef.reset();
+    this.mopRef.reset();
+    this.sourceRef.reset();
+    this.privacyRef.reset();
+    this.piiRef.reset();
+    this.sovRef.reset();
+    this.timeRef.reset();
+    this.motiRef.reset();
+    this.scopeRef.reset();
+    this.rewardRef.reset();
+    this.payRef.reset();
+    this.provRef.reset();
+    this.roleRef.reset();
+    this.interRef.reset();
+    this.accRef.reset();
+    this.freqRef.reset();
+    this.pouRef.reset();
+    this.torRef.reset();
+    this.beneRef.reset();
+    this.initRef.reset();
+    this.controlRef.reset();
+
+    this.filterCase.emit(
+      new Usecase(
+        this.title,
+        null,
+        this.organizations,
+        null,
+        this.industries,
+        this.year_of_publication,
+        null,
+        this.type,
+        this.maturity_of_processing,
+        this.source,
+        this.privacy,
+        this.pii_relevance,
+        this.sovereignitiy,
+        this.timeframe,
+        this.motivation,
+        this.scope,
+        this.reward,
+        this.payment_model,
+        this.role,
+        this.provision,
+        this.interoperability,
+        this.access_coordination,
+        this.frequency,
+        this.purpose_of_usage,
+        this.type_of_relationship,
+        this.benefits,
+        this.initiating_party,
+        this.control_authority
+      )
+    );
+  }
 
   onFilterCases() {
     this.filterCase.emit(
