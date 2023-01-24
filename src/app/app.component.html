@@ -6,11 +6,11 @@
     <div class="col p-0" style="height: 73.5px;">
         <app-header [title]="selectedSite"></app-header>
       <div class="container-fluid p-4" id="main-content">
-        <app-home *ngIf="selectedSite === 'Home'"></app-home>
-        <app-use-case-library *ngIf="selectedSite === 'Use Case Library'"></app-use-case-library>
-        <app-upload-new-case *ngIf="selectedSite === 'Upload new Case'"></app-upload-new-case>
-        <app-my-profile *ngIf="selectedSite === 'My Profile'"></app-my-profile>
-        <app-help *ngIf="selectedSite === 'Help'"></app-help>
+        <app-home [hidden]="!(selectedSite === 'Home')"></app-home>
+        <app-use-case-library [hidden]="!(selectedSite === 'Use Case Library')" #lib></app-use-case-library>
+        <app-upload-new-case [hidden]="!(selectedSite === 'Upload new Case')" (uploadedCase)="passCase($event)" (libActive)="selectedSite = 'Use Case Library';"></app-upload-new-case>
+        <app-my-profile [hidden]="!(selectedSite === 'My Profile')"></app-my-profile>
+        <app-help [hidden]="!(selectedSite === 'Help')"></app-help>
       </div>
     </div>
   </div>

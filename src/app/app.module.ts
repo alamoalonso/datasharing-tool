@@ -20,6 +20,8 @@ import { UseCaseListComponent } from './sites/use-case-library/use-case-list/use
 import { UseCaseItemComponent } from './sites/use-case-library/use-case-list/use-case-item/use-case-item.component';
 import { DropdownCheckboxComponent } from './sites/use-case-library/search-filter/dropdown-checkbox/dropdown-checkbox.component';
 import { DropdownRadioComponent } from './sites/use-case-library/search-filter/dropdown-radio/dropdown-radio.component';
+import { UDropdownCheckboxComponent } from './sites/upload-new-case/u-dropdown-checkbox/u-dropdown-checkbox.component';
+import { UDropdownRadioComponent } from './sites/upload-new-case/u-dropdown-radio/u-dropdown-radio.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { DropdownRadioComponent } from './sites/use-case-library/search-filter/d
     UseCaseItemComponent,
     DropdownCheckboxComponent,
     DropdownRadioComponent,
+    UDropdownCheckboxComponent,
+    UDropdownRadioComponent,
   ],
   imports: [
     BrowserModule,

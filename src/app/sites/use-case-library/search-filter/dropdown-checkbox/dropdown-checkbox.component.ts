@@ -22,7 +22,6 @@ export class DropdownCheckboxComponent{
     } else{
       this.checkedChars = this.checkedChars.filter(char => char !== charac)
     }
-
     this.checkedChanged.emit(this.checkedChars);
   }
 

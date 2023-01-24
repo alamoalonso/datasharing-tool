@@ -35,7 +35,6 @@ export class UseCaseLibraryComponent{
       }
     })
 
-    console.log(this.sortedCases);
   }
 
 }

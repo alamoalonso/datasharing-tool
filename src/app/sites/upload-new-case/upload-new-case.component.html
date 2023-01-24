@@ -1,4 +1,4 @@
-<div class="container" style="max-height: 80vh; overflow-y: auto;">
+<div class="container" style="max-height: 80vh; overflow-y: auto; padding-bottom: 150px;" *ngIf="!caseUploaded">
   <div class="row h-15 h2">
     <div class="col-md-12">
       <h3>Upload your own Use Case</h3>
@@ -13,17 +13,17 @@
   <div class="row" style="padding-top: 10px;">
     <div class="col-md-6">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title">
+      <input type="text" (keyup)="titleChange($event)" class="form-control" id="title" placeholder="Enter title">
     </div>
     <div class="col-md-6">
       <label for="organizations">Organizations:</label>
-      <input type="text" class="form-control" id="organizations" placeholder="Enter participating organizations">
+      <input type="text" (keyup)="organizationChange($event)" class="form-control" id="organizations" placeholder="Enter participating organizations">
     </div>
   </div>
   <div class="row" style="padding-top: 10px;">
     <div class="col-md-6">
       <label for="industry">Industry:</label>
-      <input type="text" class="form-control" id="industry" placeholder="Enter industry">
+      <input type="text" (keyup)="industriesChange($event)" class="form-control" id="industry" placeholder="Enter industry">
     </div>
     <div class="col-md-6">
       <label for="contact_person">Contact person:</label>
@@ -31,30 +31,90 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="contact_person">Name & Mail</span>
         </div>
-        <input type="text" class="form-control" id="name" placeholder="Enter name">
-        <input type="text" class="form-control" id="email" placeholder="Enter mail">
+        <input type="text" (keyup)="nameChange($event)" class="form-control" id="name" placeholder="Enter name">
+        <input type="text" (keyup)="mailChange($event)" class="form-control" id="email" placeholder="Enter mail">
       </div>
     </div>
   </div>
   <div class="row" style="padding-top: 10px;">
     <div class="col-md-12">
       <label for="description">Short description:</label>
-      <textarea class="form-control" id="description" rows="3" placeholder="Enter description"></textarea>
+      <textarea class="form-control" (keyup)="descChange($event)" id="description" rows="3" placeholder="Enter description"></textarea>
     </div>
   </div>
   <div class="row" style="padding-top: 10px;">
     <div class="col-md-9">
       <label for="link">Link to full documentation:</label>
-      <input type="text" class="form-control" id="link" placeholder="Enter link">
+      <input type="text" (keyup)="linkChange($event)" class="form-control" id="link" placeholder="Enter link">
     </div>
     <div class="col-md-3">
       <label for="yop">Year of publication:</label>
-      <input type="text" class="form-control" id="yop" placeholder="Enter year">
+      <input type="text" (keyup)="yopChange($event)" class="form-control" id="yop" placeholder="Enter year">
     </div>
   </div>
   <div class="row" style="padding-top: 25px;">
     <div class="col-md-12">
       <h5>Use case characteristics:</h5>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;">
+    <div class="col-md-12">
+      <div class="form-inline" id="form-line">
+        <app-u-dropdown-checkbox (checkedChanged)="typeChange($event)" [dimension]="'Data type'" [characteristics]="['Process', 'Product', 'Environment', 'Human', 'Other']" #type></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="mopChange($event)" [dimension]="'Maturity of processing'" [characteristics]="['Raw data', 'Modified data', 'Enriched data', 'Processed data']" #mop></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="sourceChange($event)" [dimension]="'Data source'" [characteristics]="['Generated', 'Acquired', 'Customer-provided', 'Free available']" #source></app-u-dropdown-checkbox>
+        <app-u-dropdown-radio (charChanged)="privacyChange($event)" [dimension]="'Privacy'" [characteristics]="['Public', 'Internal', 'Confidential', 'Sensitive']" #privacy></app-u-dropdown-radio>
+        <app-u-dropdown-radio (charChanged)="pii_relevanceChange($event)" [dimension]="'PII-relevance'" [characteristics]="['PII-relevant', 'Non-PII-relevant']" #pii></app-u-dropdown-radio>
+        <app-u-dropdown-radio (charChanged)="sovereignityChange($event)" [dimension]="'Sovereignity'" [characteristics]="['Individual', 'Organizational', 'Shared']" #sov></app-u-dropdown-radio>
+        <app-u-dropdown-checkbox (checkedChanged)="timeframeChange($event)" [dimension]="'Timeframe'" [characteristics]="['Static', 'Up-to-Date', '(Near-) realtime']" #time></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="motivationChange($event)" [dimension]="'Motivation'" [characteristics]="['Economic', 'Social & Ecological', 'Legal', 'Cultural']" #moti></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="scopeChange($event)" [dimension]="'Scope'" [characteristics]="['Intra-organizational', 'Same industry', 'Cross-industry']" #scope></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="rewardChange($event)" [dimension]="'Reward'" [characteristics]="['Financial', 'Virtual assest', 'Data', 'Service', 'Reputation', 'Other']" #reward></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="payment_modelChange($event)" [dimension]="'Payment model'" [characteristics]="['Free', 'Fixed', 'Subscription-based', 'Usage-based', 'Revenue-based', 'Hybrid']" #pay></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="roleChange($event)" [dimension]="'Role'" [characteristics]="['Data-provider', 'Intermediary', 'Data consumer', 'Service broker']" #role></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="provisionChange($event)" [dimension]="'Provision'" [characteristics]="['Closed API', 'Platform', 'Marketplace', 'Open API']" #prov></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="interoperabilityChange($event)" [dimension]="'Interoperability'" [characteristics]="['Legal', 'Organizational', 'Semantic', 'Technical']" #inter></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="accessChange($event)" [dimension]="'Access coordination'" [characteristics]="['Agreement-based', 'Application-based', 'Trust-based', 'Open']" #acc></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="frequencyChange($event)" [dimension]="'Frequency'" [characteristics]="['On demand', 'Event-based', 'Continuous']" #freq></app-u-dropdown-checkbox>
+        <app-u-dropdown-checkbox (checkedChanged)="pouChange($event)" [dimension]="'Purpose of usage'" [characteristics]="['Primary', 'Secondary', 'Tertiary', 'End use']" #pou></app-u-dropdown-checkbox>
+        <app-u-dropdown-radio (charChanged)="torChange($event)" [dimension]="'Type of relationship'" [characteristics]="['One-to-one', 'One-to-many', 'Many-to-one', 'Many-to-many']" #tor></app-u-dropdown-radio>
+        <app-u-dropdown-checkbox (checkedChanged)="benefitsChange($event)" [dimension]="'Benefits'" [characteristics]="['Efficiency gains', 'Improved quality', 'New insights', 'New offerings']" #bene></app-u-dropdown-checkbox>
+        <app-u-dropdown-radio (charChanged)="ipChange($event)" [dimension]="'Initiating party'" [characteristics]="['Provider-initiated', 'Intermediary-initiated', 'Consumer-initiated', 'Service broker-initiated']" #init></app-u-dropdown-radio>
+        <app-u-dropdown-checkbox (checkedChanged)="caChange($event)" [dimension]="'Control authority'" [characteristics]="['Provider-controlled', 'Intermediary-controlled', 'Consumer-controlled', 'Service broker-controlled']" #control></app-u-dropdown-checkbox>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 25px;">
+    <div class="col-md-12">
+      <h5>Preview:</h5>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <app-use-case-item [useCase]="prevCase" [filterCase]="filCase" #preCase></app-use-case-item>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-right" style="padding-top: 40px;">
+      <button class="btn btn-light" style="margin-right: 5px;">Clear form</button>
+      <button class="btn btn-dark" (click)="uploadCase()">Upload</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-height: 80vh; overflow-y: auto; padding-bottom: 150px;" *ngIf="caseUploaded">
+  <div class="row h-15 h2">
+    <div class="col-md-12">
+      <h3>Case uploaded successfully!</h3>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-light" style="margin-right: 5px;" (click)="goToLib()">Check out Use Case Library</button>
+      <button class="btn btn-dark" (click)="caseUploaded = false">Upload another Case</button>
     </div>
   </div>
 </div>

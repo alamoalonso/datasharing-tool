@@ -1,5 +1,4 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { DropdownItemComponent } from 'ng-cdbangular';
 import { Usecase } from '../../shared/usecase.model';
 import { DropdownCheckboxComponent } from './dropdown-checkbox/dropdown-checkbox.component';
 import { DropdownRadioComponent } from './dropdown-radio/dropdown-radio.component';
@@ -175,7 +174,6 @@ export class SearchFilterComponent {
     } else {
       this.organizations = event.target.value.split(',');
     }
-    console.log(this.organizations);
   }
 
   industriesChange(event) {
@@ -184,7 +182,6 @@ export class SearchFilterComponent {
     } else {
       this.industries = event.target.value.split(',');
     }
-    console.log(this.industries);
   }
 
   titleChange(event) {
@@ -193,7 +190,6 @@ export class SearchFilterComponent {
     } else {
       this.title = event.target.value;
     }
-    console.log(this.title);
   }
 
   yopChange(event) {
@@ -202,7 +198,6 @@ export class SearchFilterComponent {
     } else {
       this.year_of_publication = event.target.value;
     }
-    console.log(this.year_of_publication);
   }
 
   typeChange(event) {

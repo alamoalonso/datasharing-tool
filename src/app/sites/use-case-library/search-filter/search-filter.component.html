@@ -13,41 +13,39 @@
       <input type="text" (keyup)="yopChange($event)" class="form-control mb-2 mr-sm-2" placeholder="Filter for year of publication" id="year of publication" #yop>
     </div>
   </div>
-  <div class="form-row">
-      <a class="mb-2 mr-sm-2" style="color: inherit; margin-left: 3px;" href="#advancedFiltersettings" data-toggle="collapse" aria-expanded="false" aria-controls="advancedFiltersettings">
+  <div class="row">
+    <div class="col-md-12">
+      <a class="mb-2 mr-sm-2" style="color: inherit;" href="#advancedFiltersettings" data-toggle="collapse" aria-expanded="false" aria-controls="advancedFiltersettings">
         Show advanced filter settings
       </a>
+    </div>
   </div>
   <div class="collapse" id="advancedFiltersettings">
-    <div class="form-row">
-      <div class="form-inline">
-        <app-dropdown-checkbox (checkedChanged)="typeChange($event)" [dimension]="'Data type'" [characteristics]="['Process', 'Product', 'Environment', 'Human', 'Other']" #type></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="mopChange($event)" [dimension]="'Maturity of processing'" [characteristics]="['Raw data', 'Modified data', 'Enriched data', 'Processed data']" #mop></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="sourceChange($event)" [dimension]="'Data source'" [characteristics]="['Generated', 'Acquired', 'Customer-provided', 'Free available']" #source></app-dropdown-checkbox>
-        <app-dropdown-radio (charChanged)="privacyChange($event)" [dimension]="'Privacy'" [characteristics]="['Public', 'Internal', 'Confidential', 'Sensitive']" #privacy></app-dropdown-radio>
-        <app-dropdown-radio (charChanged)="pii_relevanceChange($event)" [dimension]="'PII-relevance'" [characteristics]="['PII-relevant', 'Non-PII-relevant']" #pii></app-dropdown-radio>
-        <app-dropdown-radio (charChanged)="sovereignityChange($event)" [dimension]="'Sovereignity'" [characteristics]="['Individual', 'Organizational', 'Shared']" #sov></app-dropdown-radio>
-      </div>
-      <div class="form-inline">
-        <app-dropdown-checkbox (checkedChanged)="timeframeChange($event)" [dimension]="'Timeframe'" [characteristics]="['Static', 'Up-to-Date', '(Near-) realtime']" #time></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="motivationChange($event)" [dimension]="'Motivation'" [characteristics]="['Economic', 'Social & Ecological', 'Legal', 'Cultural']" #moti></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="scopeChange($event)" [dimension]="'Scope'" [characteristics]="['Intra-organizational', 'Same industry', 'Cross-industry']" #scope></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="rewardChange($event)" [dimension]="'Reward'" [characteristics]="['Financial', 'Virtual assest', 'Data', 'Service', 'Reputation', 'Other']" #reward></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="payment_modelChange($event)" [dimension]="'Payment model'" [characteristics]="['Free', 'Fixed', 'Subscription-based', 'Usage-based', 'Revenue-based', 'Hybrid']" #pay></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="roleChange($event)" [dimension]="'Role'" [characteristics]="['Data-provider', 'Intermediary', 'Data consumer', 'Service broker']" #role></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="provisionChange($event)" [dimension]="'Provision'" [characteristics]="['Closed API', 'Platform', 'Marketplace', 'Open API']" #prov></app-dropdown-checkbox>
-      </div>
-      <div class="form-inline">
-        <app-dropdown-checkbox (checkedChanged)="interoperabilityChange($event)" [dimension]="'Interoperability'" [characteristics]="['Legal', 'Organizational', 'Semantic', 'Technical']" #inter></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="accessChange($event)" [dimension]="'Access coordination'" [characteristics]="['Agreement-based', 'Application-based', 'Trust-based', 'Open']" #acc></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="frequencyChange($event)" [dimension]="'Frequency'" [characteristics]="['On demand', 'Event-based', 'Continuous']" #freq></app-dropdown-checkbox>
-        <app-dropdown-checkbox (checkedChanged)="pouChange($event)" [dimension]="'Purpose of usage'" [characteristics]="['Primary', 'Secondary', 'Tertiary', 'End use']" #pou></app-dropdown-checkbox>
-        <app-dropdown-radio (charChanged)="torChange($event)" [dimension]="'Type of relationship'" [characteristics]="['One-to-one', 'One-to-many', 'Many-to-one', 'Many-to-many']" #tor></app-dropdown-radio>
-      </div>
-      <div class="form-inline">
-        <app-dropdown-checkbox (checkedChanged)="benefitsChange($event)" [dimension]="'Benefits'" [characteristics]="['Efficiency gains', 'Improved quality', 'New insights', 'New offerings']" #bene></app-dropdown-checkbox>
-        <app-dropdown-radio (charChanged)="ipChange($event)" [dimension]="'Initiating party'" [characteristics]="['Provider-initiated', 'Intermediary-initiated', 'Consumer-initiated', 'Service broker-initiated']" #init></app-dropdown-radio>
-        <app-dropdown-checkbox (checkedChanged)="caChange($event)" [dimension]="'Control authority'" [characteristics]="['Provider-controlled', 'Intermediary-controlled', 'Consumer-controlled', 'Service broker-controlled']" #control></app-dropdown-checkbox>
+    <div class="row" style="padding-top: 10px;">
+      <div class="col-md-12">
+        <div class="form-inline">
+          <app-dropdown-checkbox (checkedChanged)="typeChange($event)" [dimension]="'Data type'" [characteristics]="['Process', 'Product', 'Environment', 'Human', 'Other']" #type></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="mopChange($event)" [dimension]="'Maturity of processing'" [characteristics]="['Raw data', 'Modified data', 'Enriched data', 'Processed data']" #mop></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="sourceChange($event)" [dimension]="'Data source'" [characteristics]="['Generated', 'Acquired', 'Customer-provided', 'Free available']" #source></app-dropdown-checkbox>
+          <app-dropdown-radio (charChanged)="privacyChange($event)" [dimension]="'Privacy'" [characteristics]="['Public', 'Internal', 'Confidential', 'Sensitive']" #privacy></app-dropdown-radio>
+          <app-dropdown-radio (charChanged)="pii_relevanceChange($event)" [dimension]="'PII-relevance'" [characteristics]="['PII-relevant', 'Non-PII-relevant']" #pii></app-dropdown-radio>
+          <app-dropdown-radio (charChanged)="sovereignityChange($event)" [dimension]="'Sovereignity'" [characteristics]="['Individual', 'Organizational', 'Shared']" #sov></app-dropdown-radio>
+          <app-dropdown-checkbox (checkedChanged)="timeframeChange($event)" [dimension]="'Timeframe'" [characteristics]="['Static', 'Up-to-Date', '(Near-) realtime']" #time></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="motivationChange($event)" [dimension]="'Motivation'" [characteristics]="['Economic', 'Social & Ecological', 'Legal', 'Cultural']" #moti></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="scopeChange($event)" [dimension]="'Scope'" [characteristics]="['Intra-organizational', 'Same industry', 'Cross-industry']" #scope></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="rewardChange($event)" [dimension]="'Reward'" [characteristics]="['Financial', 'Virtual assest', 'Data', 'Service', 'Reputation', 'Other']" #reward></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="payment_modelChange($event)" [dimension]="'Payment model'" [characteristics]="['Free', 'Fixed', 'Subscription-based', 'Usage-based', 'Revenue-based', 'Hybrid']" #pay></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="roleChange($event)" [dimension]="'Role'" [characteristics]="['Data-provider', 'Intermediary', 'Data consumer', 'Service broker']" #role></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="provisionChange($event)" [dimension]="'Provision'" [characteristics]="['Closed API', 'Platform', 'Marketplace', 'Open API']" #prov></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="interoperabilityChange($event)" [dimension]="'Interoperability'" [characteristics]="['Legal', 'Organizational', 'Semantic', 'Technical']" #inter></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="accessChange($event)" [dimension]="'Access coordination'" [characteristics]="['Agreement-based', 'Application-based', 'Trust-based', 'Open']" #acc></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="frequencyChange($event)" [dimension]="'Frequency'" [characteristics]="['On demand', 'Event-based', 'Continuous']" #freq></app-dropdown-checkbox>
+          <app-dropdown-checkbox (checkedChanged)="pouChange($event)" [dimension]="'Purpose of usage'" [characteristics]="['Primary', 'Secondary', 'Tertiary', 'End use']" #pou></app-dropdown-checkbox>
+          <app-dropdown-radio (charChanged)="torChange($event)" [dimension]="'Type of relationship'" [characteristics]="['One-to-one', 'One-to-many', 'Many-to-one', 'Many-to-many']" #tor></app-dropdown-radio>
+          <app-dropdown-checkbox (checkedChanged)="benefitsChange($event)" [dimension]="'Benefits'" [characteristics]="['Efficiency gains', 'Improved quality', 'New insights', 'New offerings']" #bene></app-dropdown-checkbox>
+          <app-dropdown-radio (charChanged)="ipChange($event)" [dimension]="'Initiating party'" [characteristics]="['Provider-initiated', 'Intermediary-initiated', 'Consumer-initiated', 'Service broker-initiated']" #init></app-dropdown-radio>
+          <app-dropdown-checkbox (checkedChanged)="caChange($event)" [dimension]="'Control authority'" [characteristics]="['Provider-controlled', 'Intermediary-controlled', 'Consumer-controlled', 'Service broker-controlled']" #control></app-dropdown-checkbox>
+        </div>
       </div>
     </div>
   </div>

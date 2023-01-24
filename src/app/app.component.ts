@@ -1,5 +1,7 @@
-import { AfterContentChecked, Component, NgZone, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, Component, NgZone, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { Usecase } from './sites/shared/usecase.model';
+import { UseCaseLibraryComponent } from './sites/use-case-library/use-case-library.component';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,17 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class AppComponent{
 
-  selectedSite = 'Upload new Case';
+  @ViewChild("lib") libRef: UseCaseLibraryComponent;
+
+  selectedSite = 'Home';
 
   changeSite(newSite: string) {
     this.selectedSite = newSite;
+  }
+
+  passCase(usecase: Usecase) {
+    this.libRef.useCases.push(usecase);
+    this.libRef.updateSortedCases();
   }
 
 }

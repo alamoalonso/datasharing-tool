@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Usecase } from 'src/app/sites/shared/usecase.model';
 import { Input } from '@angular/core';
 
@@ -19,6 +19,10 @@ export class UseCaseItemComponent implements OnInit {
 
   blockedProps = ['title', 'description', 'organizations', 'contact_person', 'industries', 'year_of_publication', 'link'];
 
+  updateCase(){
+    this.ngOnInit();
+  }
+
   ngOnInit() {
     this.useCaseProperties = Object.entries(this.useCase);
     this.clearedProperties = this.useCaseProperties.filter(item => (item[1] !== null && !this.blockedProps.includes(item[0])));
@@ -27,6 +31,7 @@ export class UseCaseItemComponent implements OnInit {
   }
 
   arToStr(prop: string[]) {
+
     let str: String = '';
 
     for (let i = 0; i < prop.length - 1; i++) {
