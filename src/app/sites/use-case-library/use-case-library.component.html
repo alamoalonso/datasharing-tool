@@ -1,4 +1,4 @@
-<div class="container" style="max-height: 80vh; overflow-y: auto;">
+<div class="container" style="max-height: 80vh; overflow-y: auto; padding-bottom: 150px;">
   <div class="row h-15 h2">
     <div class="col-md-12">
       <h3>Browse Use Cases</h3>
@@ -13,7 +13,12 @@
   <hr>
   <div class="row">
     <div class="col-md-12">
-      <app-use-case-list [filterCase]="filCase" [sortedUseCases]="sortedCases"></app-use-case-list>
+      <app-use-case-list
+       (newFav)="gotFav($event)"
+       (newUnfav)="gotUnfav($event)"
+       [filterCase]="filCase"
+       [sortedUseCases]="sortedCases"
+       ></app-use-case-list>
     </div>
   </div>
 </div>

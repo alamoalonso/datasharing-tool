@@ -1,4 +1,4 @@
-<div class="container" style="max-height: 80vh; overflow-y: auto; padding-bottom: 150px;" *ngIf="!caseUploaded">
+<div class="container" style="max-height: 80vh; overflow-y: auto; padding-bottom: 150px;" *ngIf="!caseUploaded && !formCleared">
   <div class="row h-15 h2">
     <div class="col-md-12">
       <h3>Upload your own Use Case</h3>
@@ -98,8 +98,13 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-right" style="padding-top: 40px;">
-      <button class="btn btn-light" style="margin-right: 5px;">Clear form</button>
-      <button class="btn btn-dark" (click)="uploadCase()">Upload</button>
+      <button class="btn btn-light" style="margin-right: 5px;" (click)="clearForm()">Clear form</button>
+      <button class="btn btn-dark" (click)="tryUpload()">Upload</button>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;" *ngIf="propsMissing">
+    <div class="col-md-12 text-danger">
+      <p>Upload failed. Missing values for: {{ arToStr(missingProps) }}.</p>
     </div>
   </div>
 </div>
@@ -114,7 +119,7 @@
   <div class="row">
     <div class="col-md-12">
       <button class="btn btn-light" style="margin-right: 5px;" (click)="goToLib()">Check out Use Case Library</button>
-      <button class="btn btn-dark" (click)="caseUploaded = false">Upload another Case</button>
+      <button class="btn btn-dark" (click)="anotherCase()">Upload another Case</button>
     </div>
   </div>
 </div>

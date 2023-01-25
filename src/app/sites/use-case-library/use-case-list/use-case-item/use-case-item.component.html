@@ -15,11 +15,14 @@
       <div class="col-md-2">
         {{ useCase.industries.toString() }}
       </div>
-      <div class="col-md-2" style="text-align: right;">
+      <div class="col-md-2" style="text-align: right;" *ngIf="!casesimilarityBlocked">
         {{ useCase.year_of_publication }}
       </div>
-      <div class="col-md-2" style="text-align: right;">
+      <div class="col-md-2" style="text-align: right;" *ngIf="!casesimilarityBlocked">
         {{ computeFit() }}
+      </div>
+      <div class="col-md-4" style="text-align: right;" *ngIf="casesimilarityBlocked">
+        {{ useCase.year_of_publication }}
       </div>
     </div>
   </a>
@@ -40,11 +43,17 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-md-6 text-left">
+      <div class="col-md-4 text-left">
         Contact person: <a href="mailto:{{ useCase.contact_person.email }}">{{ useCase.contact_person.name }}</a>
       </div>
-      <div class="col-md-6 text-right">
-        <a href="{{ useCase.link }}">Link to full document</a>
+      <div class="col-md-4" style="text-align: center;">
+        <a href="#" (click)="addFav()" *ngIf="favOption">Add to favorites</a>
+        <a href="#" (click)="unfav()" *ngIf="unfavOption">Delete from favorites</a>
+        <a href="#" (click)="deleteCase()" *ngIf="deleteOption">Delete from Library</a>
+        <a href="#" *ngIf="!favOption && !unfavOption"></a>
+      </div>
+      <div class="col-md-4 text-right">
+        <a href="{{ useCase.link }}" target="_blank">Link to full document</a>
       </div>
     </div>
   </div>

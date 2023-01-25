@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Usecase } from '../shared/usecase.model';
 import { UseCaseItemComponent } from '../use-case-library/use-case-list/use-case-item/use-case-item.component';
 
@@ -10,9 +10,11 @@ import { UseCaseItemComponent } from '../use-case-library/use-case-list/use-case
 export class UploadNewCaseComponent implements AfterViewInit{
 
   public caseUploaded: boolean = false;
+  public formCleared: boolean = false;
+  public propsMissing: boolean = false;
 
-  useCase: Usecase;
-  prevCase: Usecase = new Usecase('Title', 'Description', ['Organizations'], {name: 'Contact person', email: ''}, ['Industry'], 'Year', 'somelink', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+  useCase: Usecase = new Usecase(null, null, null, {name: null, email: null}, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+  prevCase: Usecase = new Usecase("Title", "Description", ["Organizations"], {name: "Contact person", email:""}, ["Industries"], "Year", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,);
   filCase: Usecase = new Usecase("EASTEREGG", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
   @ViewChild("preCase") preRef: UseCaseItemComponent;
@@ -54,12 +56,14 @@ export class UploadNewCaseComponent implements AfterViewInit{
   public initiating_party = null;
   public control_authority = null;
 
-  public prevTitle;
-  public prevDescription;
-  public prevOrganizations;
+  public prevTitle = "Title";
+  public prevDescription = "Description";
+  public prevOrganizations = ["Organizations"];
   public prevContactPerson = {name: "Contact person", email: ""};
-  public prevIndustries;
-  public prevYop;
+  public prevIndustries = ["Industry"];
+  public prevYop = "Year";
+
+  public missingProps: string[] = [];
 
 
   upCase() {
@@ -115,13 +119,87 @@ export class UploadNewCaseComponent implements AfterViewInit{
     this.preRef.updateCase();
   }
 
+  clearForm(){
+    this.title = null;
+    this.description = null;
+    this.organizations = null;
+    this.contact_person = {name: null, email: null};
+    this.industries = null;
+    this.year_of_publication = null;
+    this.link = null;
+    this.type = null;
+    this.maturity_of_processing = null;
+    this.source = null;
+    this.privacy = null;
+    this.pii_relevance = null;
+    this.sovereignitiy = null;
+    this.timeframe = null;
+    this.motivation = null;
+    this.scope = null;
+    this.reward = null;
+    this.payment_model = null;
+    this.role = null;
+    this.provision = null;
+    this.interoperability = null;
+    this.access_coordination = null;
+    this.frequency = null;
+    this.purpose_of_usage = null;
+    this.type_of_relationship = null;
+    this.benefits = null;
+    this.initiating_party = null;
+    this.control_authority = null;
+    this.formCleared = true;
+
+    const out = window.setTimeout(() => {this.formCleared = false;});
+  }
+
+  tryUpload(){
+    this.missingProps = [];
+    if(this.useCase.title === null){
+      this.missingProps.push("Title");
+    }
+    if(this.useCase.organizations === null){
+      this.missingProps.push("Organizations");
+    }
+    if(this.useCase.industries === null){
+      this.missingProps.push("Industry");
+    }
+    if(this.useCase.contact_person.name === null || this.useCase.contact_person.email === null){
+      this.missingProps.push("Contact person");
+    }
+    if(this.useCase.description === null){
+      this.missingProps.push("Description");
+    }
+    if(this.useCase.link === null){
+      this.missingProps.push("Link");
+    }
+    if(this.useCase.year_of_publication === null){
+      this.missingProps.push("Year of publication");
+    }
+    if(this.missingProps.length === 0){
+      this.uploadCase();
+    } else {
+      this.propsMissing = true;
+      const out = window.setTimeout(() => {this.propsMissing = false}, 10000);
+    }
+  }
+
   uploadCase() {
     this.uploadedCase.emit(this.useCase);
     this.caseUploaded = true;
   }
 
+  anotherCase(){
+    this.clearForm();
+    this.caseUploaded = false;
+    this.upCase();
+  }
+
   goToLib() {
     this.libActive.emit("Use Case Library");
+    this.clearForm();
+    this.caseUploaded = false;
+    this.upCase();
   }
 
   titleChange(event) {
@@ -404,5 +482,14 @@ export class UploadNewCaseComponent implements AfterViewInit{
       this.control_authority = null;
     }
     this.upCase();
+  }
+
+  arToStr(prop: string[]) {
+    let str: String = '';
+    for (let i = 0; i < prop.length - 1; i++) {
+      str = str + prop[i] + ', ';
+    }
+    str = str + prop[prop.length - 1];
+    return str
   }
 }

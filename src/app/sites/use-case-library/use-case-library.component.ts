@@ -1,4 +1,4 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Usecase } from '../shared/usecase.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { Usecase } from '../shared/usecase.model';
 })
 export class UseCaseLibraryComponent{
 
+  @Output() newFav: EventEmitter<Usecase> = new EventEmitter();
+  @Output() newUnfav: EventEmitter<Usecase> = new EventEmitter();
 
   useCases: Usecase[] = [
     new Usecase('Secondary Use Health Data', 'The report, researched and produced by the Open Data Institute (ODI), focuses on the importance of secondary use of health data in Europe to help respond to the many urgent challenges facing society and economy today. It states that by reusing health data in different ways, we can increase the value of this data and help to enable improvements in population health, more efficient healthcare systems, and foster innovation. The report identifies 22 key policy components needed to achieve a trusted and trustworthy data ecosystem and provides an evaluation of the quality of policy activity for each component. The report is independent work by the ODI that was commissioned by Roche.',['Open Data Institute'], {name: 'Mark Boyd', email:'policy@theodi.org'}, ['Health'], '2021', null, ['Other'], ['Processed data'], ['Generated'], ['Sensitive'], ['PII-relevant'], ['Individual'], ['Static', 'Up-to-date', '(Near-) realtime'], ['Social & Ecological', 'Economic'], ['Same industry'], ['Service', 'Data'], null, null, null, ['Legal', 'Organizational', 'Semantic', 'Technical'], null, ['Continuous'], ['Secondary'], ['Many-to-many'], ['Efficiency gains', 'Improved quality', 'New insights', 'New offerings'], null, null),
@@ -35,6 +37,14 @@ export class UseCaseLibraryComponent{
       }
     })
 
+  }
+
+  gotFav(usecase: Usecase){
+    this.newFav.emit(usecase);
+  }
+
+  gotUnfav(usecase: Usecase){
+    this.newUnfav.emit(usecase);
   }
 
 }

@@ -22,8 +22,11 @@
       </li>
       <app-use-case-item
       *ngFor="let case of sortedUseCases"
+      (newFav)="gotFav($event)"
+      (newUnfav)="gotUnfav($event)"
       [useCase]="case"
       [filterCase]="filterCase"
+      [favOption]="true"
       >
       </app-use-case-item>
     </ul>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Usecase } from '../../shared/usecase.model';
 
 @Component({
@@ -11,4 +11,14 @@ export class UseCaseListComponent {
   @Input() sortedUseCases: Usecase[];
   @Input() filterCase: Usecase;
 
+  @Output() newFav: EventEmitter<Usecase> = new EventEmitter();
+  @Output() newUnfav: EventEmitter<Usecase> = new EventEmitter();
+
+  gotFav(usecase: Usecase) {
+    this.newFav.emit(usecase);
+  }
+
+  gotUnfav(usecase: Usecase) {
+    this.newUnfav.emit(usecase);
+  }
 }

@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Usecase } from 'src/app/sites/shared/usecase.model';
 import { Input } from '@angular/core';
+import { MyProfileComponent } from 'src/app/sites/my-profile/my-profile.component';
 
 @Component({
   selector: 'app-use-case-item',
@@ -11,6 +12,15 @@ export class UseCaseItemComponent implements OnInit {
 
   @Input() useCase: Usecase;
   @Input() filterCase: Usecase;
+  @Input() favOption: boolean = false;
+  @Input() unfavOption: boolean = false;
+  @Input() favBlocked: boolean = false;
+  @Input() casesimilarityBlocked: boolean = false;
+  @Input() deleteOption: boolean = false;
+
+  @Output() newFav: EventEmitter<Usecase> = new EventEmitter();
+  @Output() newUnfav: EventEmitter<Usecase> = new EventEmitter();
+  @Output() newDelete: EventEmitter<Usecase> = new EventEmitter();
 
   ID_normal: string;
   ID_hash: string;
@@ -55,6 +65,24 @@ export class UseCaseItemComponent implements OnInit {
     sim = Math.round(sim * 100);
 
     return sim + '%'
+  }
+
+  addFav(){
+    this.favOption = false;
+    this.unfavOption = true;
+    this.newFav.emit(this.useCase);
+  }
+
+  unfav(){
+    this.unfavOption = false;
+    if(!this.favBlocked){
+      this.favOption = true;
+    }
+    this.newUnfav.emit(this.useCase);
+  }
+
+  deleteCase(){
+    this.newDelete.emit(this.useCase);
   }
 
 }
