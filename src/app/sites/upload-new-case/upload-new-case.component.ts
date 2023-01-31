@@ -186,20 +186,20 @@ export class UploadNewCaseComponent implements AfterViewInit{
 
   uploadCase() {
     this.uploadedCase.emit(this.useCase);
+    console.log(this.maturity_of_processing);
+    console.log("new Usecase(" + this.strUpload(this.title) + ", " + this.strUpload(this.description) + ", " + this.xxxUpload(this.organizations) + ", " + this.zzzContact(this.contact_person) + ", " + this.xxxUpload(this.industries) + ", " + this.strUpload(this.year_of_publication) + ", " + this.strUpload(this.link) + ", " + this.xxxUpload(this.type) + ", " + this.xxxUpload(this.maturity_of_processing), this.xxxUpload(this.maturity_of_processing) + ", " + this.xxxUpload(this.source) + ", " + this.xxxUpload(this.privacy), this.xxxUpload(this.pii_relevance) + ", " + this.xxxUpload(this.sovereignitiy) + ", " + this.xxxUpload(this.timeframe) + ", " + this.xxxUpload(this.motivation) + ", " + this.xxxUpload(this.scope) + ", " + this.xxxUpload(this.reward) + ", " + this.xxxUpload(this.payment_model) + ", " + this.xxxUpload(this.role) + ", " + this.xxxUpload(this.provision) + ", " + this.xxxUpload(this.interoperability) + ", " + this.xxxUpload(this.access_coordination) + ", " + this.xxxUpload(this.frequency) + ", " + this.xxxUpload(this.purpose_of_usage) + ", " + this.xxxUpload(this.type_of_relationship) + ", " + this.xxxUpload(this.benefits) + ", " + this.xxxUpload(this.initiating_party) + ", " + this.xxxUpload(this.control_authority) + ")");
+    this.clearForm();
+    this.upCase();
     this.caseUploaded = true;
   }
 
   anotherCase(){
-    this.clearForm();
     this.caseUploaded = false;
-    this.upCase();
   }
 
   goToLib() {
     this.libActive.emit("Use Case Library");
-    this.clearForm();
     this.caseUploaded = false;
-    this.upCase();
   }
 
   titleChange(event) {
@@ -491,5 +491,26 @@ export class UploadNewCaseComponent implements AfterViewInit{
     }
     str = str + prop[prop.length - 1];
     return str
+  }
+
+  xxxUpload(array: []){
+    if(array === null){
+      return 'null'
+    } else{
+      let str = '[';
+      for(let i = 0; i < array.length - 1; i++){
+        str = str + "'" + array[i] + "', "
+      }
+      str = str + "'" + array[array.length - 1] + "']"
+      return str
+    }
+  }
+
+  strUpload(strin: string){
+    return "'" + strin + "'";
+  }
+
+  zzzContact(cp: {name, email}){
+    return "{name: '" + cp.name + "', email: '" + cp.email + "'}"
   }
 }

@@ -5,4 +5,29 @@
       <hr>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>Tims text goes here</p>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Trending Use Cases:</h5>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;">
+    <div class="col-md-12">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <app-use-case-item [useCase]="firstCase" [casesimilarityBlocked]="true" [favBlocked]="true"></app-use-case-item>
+          </div>
+          <div class="carousel-item" *ngFor="let case of otherCases">
+            <app-use-case-item [useCase]="case" [casesimilarityBlocked]="true" [favBlocked]="true"></app-use-case-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

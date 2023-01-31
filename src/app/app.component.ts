@@ -1,5 +1,6 @@
-import { AfterContentChecked, Component, NgZone, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, NgZone, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { HomeComponent } from './sites/home/home.component';
 import { MyProfileComponent } from './sites/my-profile/my-profile.component';
 import { Usecase } from './sites/shared/usecase.model';
 import { UseCaseLibraryComponent } from './sites/use-case-library/use-case-library.component';
@@ -11,6 +12,7 @@ import { UseCaseLibraryComponent } from './sites/use-case-library/use-case-libra
 })
 export class AppComponent{
 
+  @ViewChild("home") homeRef: HomeComponent;
   @ViewChild("lib") libRef: UseCaseLibraryComponent;
   @ViewChild("profile") profileRef: MyProfileComponent;
 
@@ -24,6 +26,7 @@ export class AppComponent{
     this.libRef.useCases.push(usecase);
     this.libRef.updateSortedCases();
     this.profileRef.myUsecases.push(usecase);
+    this.homeRef.newCase(this.libRef.useCases);
   }
 
   gotFav(usecase: Usecase){

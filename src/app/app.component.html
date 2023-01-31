@@ -6,7 +6,7 @@
     <div class="col p-0" style="height: 73.5px;">
         <app-header [title]="selectedSite"></app-header>
       <div class="container-fluid p-4" id="main-content">
-        <app-home [hidden]="!(selectedSite === 'Home')"></app-home>
+        <app-home [hidden]="!(selectedSite === 'Home')" #home></app-home>
         <app-use-case-library [hidden]="!(selectedSite === 'Use Case Library')" (newFav)="gotFav($event)" (newUnfav)="gotUnfav($event)" #lib></app-use-case-library>
         <app-upload-new-case [hidden]="!(selectedSite === 'Upload new Case')" (uploadedCase)="passCase($event)" (libActive)="selectedSite = 'Use Case Library';"></app-upload-new-case>
         <app-my-profile [hidden]="!(selectedSite === 'My Profile')" (deleteCase)="delCase($event)" #profile></app-my-profile>
