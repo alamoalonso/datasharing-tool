@@ -22,6 +22,7 @@ import { DropdownCheckboxComponent } from './sites/use-case-library/search-filte
 import { DropdownRadioComponent } from './sites/use-case-library/search-filter/dropdown-radio/dropdown-radio.component';
 import { UDropdownCheckboxComponent } from './sites/upload-new-case/u-dropdown-checkbox/u-dropdown-checkbox.component';
 import { UDropdownRadioComponent } from './sites/upload-new-case/u-dropdown-radio/u-dropdown-radio.component';
+import { HelpTagComponent } from './sites/help/help-tag/help-tag.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UDropdownRadioComponent } from './sites/upload-new-case/u-dropdown-radi
     DropdownRadioComponent,
     UDropdownCheckboxComponent,
     UDropdownRadioComponent,
+    HelpTagComponent,
   ],
   imports: [
     BrowserModule,

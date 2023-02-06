@@ -1,1 +1,151 @@
-<p>help works!</p>
+<div class="container" style="max-height: 80vh; overflow-y: auto; padding-bottom: 150px;">
+  <div class="row h-15 h2">
+    <div class="col-md-12">
+      <h3>Help</h3>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Data dimensions:</h5>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <app-help-tag dimension="Type" explanation="The first dimension is a matter of Data Types. First, process data describes all data which occurs from the operation of a machine and represents the current status of the process in the control system. Product data is measured at the processing units and provides valuable information about the production process. To include information about the natural environment like air, climate or water, the characteristic environmental emerged. Furthermore, the characteristic ´human´ can be used for all data concerning humans. Since this dimension cannot be fully specified because of the wide range of data types, we use the characteristic other for further options, but provide the most common data types for the manufacturing industry as aforementioned."></app-help-tag>
+        <app-help-tag dimension="Maturity of Processing" explanation="Real-time direct access to raw data, direct access to a copy of raw data, access to modified or enriched data, access to outcomes of processed data, or data shared as open data"></app-help-tag>
+        <app-help-tag dimension="Source" explanation="Since we look at the taxonomy through the lens of the service provider, the four characteristics can be subdivided into internal data sources and into external sources. Self-generated data can be created internally, e.g., sensor data from the service provider’s machines while performing development and tests. External data can be obtained in different ways. Acquired data is purchased from data providers on data marketplaces, while free available data can be downloaded at no charge. Lastly, customer-provided data comprises relevant machine-generated process and product data for the creation of data-driven services as well as already existing, mostly unused, data in the customer’s IT systems."></app-help-tag>
+        <app-help-tag dimension="Privacy" explanation="Test"></app-help-tag>
+        <app-help-tag dimension="PII-relevance" explanation="Test"></app-help-tag>
+        <app-help-tag dimension="Sovereignity" explanation=" Here, the data ownership dimension indicates the context to which it is assigned. It
+        distinguishes whether data ownership is located at an
+        individual, organizational or shared entity.
+        Data ownership from the individual perspective
+        indicates rights relating to personal data. In the
+        organizational context, data ownership is claimed by an
+        enterprise based on data creation or by engaging in
+        economic activities such as purchasing, licensing or
+        funding data to stake a claim to data ownership. Shared
+        ownership describes a setting without any restrictions
+        over the ownership of data. This characteristic is
+        associated with the open data paradigm, where data is
+        made freely accessible and can be used accordingly by
+        everyone
+        "></app-help-tag>
+        <app-help-tag dimension="Timeframe" explanation="The time frame dimension describes whether or not the data needs frequent updates to maintain the relevancy of the data."></app-help-tag>
+      </ul>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Organization dimensions:</h5>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <app-help-tag dimension="Motivation" explanation="Economic motives include all commercial aspects that can lead to a competitive advantage such as
+        money, customer loyalty, or a strategic market position. Social and ecological motives usually have the goal of contributing to
+        the benefit of other ecosystem actors or the general public such as corporate social responsibility. Legal motives can be based on national or international laws or policies that oblige to share
+        certain data, e.g. in publicly funded research projects or in the banking context. The cultural characteristic includes all culturally motivated interests such as the general
+        organisational culture towards data sharing."></app-help-tag>
+        <app-help-tag dimension="Scope" explanation="The scope dimension considers the extent
+        of engagement and participants. We distinguish
+        between an intra-organizational and interorganizational scope.
+        Although ecosystems refer to inter-organizational
+        engagement between multiple firms, the majority of
+        research focuses on the focal actor and its ecosystem
+        governance. These central actors are capable of
+        setting governance structures within their intraorganizational and controllable environment to manage
+        their respective ecosystems. Sources relate to intraorganizational in the context of managing big data with
+        the adequate software and hardware stack, i.e., software
+        ecosystem or big data ecosystem. The distinction is
+        further required as it affects how and which governance
+        instruments can be deployed to enforce control within a
+        focal firm (e.g., platform owner) and its ecosystem or
+        within the whole ecosystem."></app-help-tag>
+        <app-help-tag dimension="Reward" explanation="The simplest way of payment is money as money is easy to handle and applicable to many situations. However, if a distributed ledger technology such as blockchain is used to share
+        the data, virtual assets such as cryptocurrencies can be used for payment. One of
+        A Taxonomy of Incentive Mechanisms for Data Sharing
+        Twenty-fifth Pacific Asia Conference on Information Systems, Dubai, UAE, 2021 8
+        the advantages of this is that payments can be automated on the blockchain using smart contracts, for
+        example. Besides a direct payment as a reward, there are also incentive mechanisms
+        that use bartering. On the one hand, this can be bartering of data for data as it
+        takes place, for example, between some hospitals. On the other hand, the data
+        provider can also be offered some kind of service in exchange for his data. However, this comes along with the challenge that these services must first be
+        developed, configured, and deployed. Another type of reward mentioned in the
+        literature is reputation which can have different manifestations. Firstly, reputation is often mentioned
+        when it comes to sharing research data from which the researcher subsequently expects citations and
+        acknowledgement in the scientific community as a reward. Secondly, Xie et
+        al. (2020) were able to show that possible community recognition is a reason for users of Internet
+        platforms to share their data. Lastly, there are papers describing ecosystems in which data consumers
+        rate data providers based on their shared data and its quality. Increased reputation value could then allow the data provider to attract more consumers. Finally, it is also possible that the data provider receives no reward at all for sharing its
+        data. This may be the case when government agencies or non-profit organisations share their data
+        publicly."></app-help-tag>
+        <app-help-tag dimension="Payment model" explanation="Firstly, a data provider can make its data available free of
+        charge (Muschalle et al. 2013). This can be the case when public authorities or non-profit organisations
+        have to publish their data or when data providers, e.g. a data marketplace, try to attract new customers
+        (Muschalle et al. 2013). However, insofar as payment takes place, the simplest payment method is a
+        fixed reward for a specified amount of data. This can be a fixed amount of money or a specified amount
+        of data or even a defined service (Badewitz et al. 2020). As a second payment model, subscription
+        models are presented in the literature (Fricker and Maksimov 2017). Al-Zahrani (2020) describes, for
+        example, a model in which a data consumer subscribes to a data provider for a specific period of time
+        to get access to the data and pays according to a negotiated subscription plan. In addition, there are also
+        payment models that are usage-based and charge according to the number of data accesses, for example
+        (Muschalle et al. 2013). Furthermore, there exist payment models based on how much revenue the data
+        consumer makes with the shared data (Shen et al. 2020). These models can have the advantage that the
+        data provider also has an incentive to offer its data in a high quality as this probably has a positive effect
+        on the revenue generated (Badewitz et al. 2020). The main challenge in these models, however, is to
+        calculate the contribution that a data set has on the revenue of the data consumer. This is especially
+        difficult when multiple data sets from different data providers are merged and analysed by one data
+        consumer (Shen et al. 2020). Finally, there are also hybrid models of the above-mentioned payment
+        models (Zheng et al. 2019). For example, Zeng et al. (2018) propose a model in which a data consumer
+        must pay a fixed price plus a variable price proportional to the revenue generated from the data.
+        Freemium models are also possible where a certain amount of data is shared free of charge and
+        additional data possibly with a higher quality is shared for a fee."></app-help-tag>
+      </ul>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Network dimensions:</h5>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 10px;">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <app-help-tag dimension="Role" explanation="Test"></app-help-tag>
+        <app-help-tag dimension="Interoperability" explanation="Semantic interoperability describes the compatibility of data formats. Technological interoperability describes the problem-free linking/connection of systems through APIs, for example, i.e. that systems can share data with each other. Legal interoperability means you have standardized contracts and legal bases so that not every use case has to be negotiated in detail. And Organizational Interoperability means you have standardized processes, such as the identification of use cases, valuation mechanisms, contact persons such as data owners, etc."></app-help-tag>
+        <app-help-tag dimension="Access coordination" explanation="on agreement basis (e.g. users
+        of the data selected based on partnership
+        agreements with their respective institutions),
+        on application basis (e.g. users of the data
+        selected based on individual applications), or
+        open (e.g. not requiring any specific selection
+        procedure)."></app-help-tag>
+        <app-help-tag dimension="Frequency" explanation="Continuity of collaboration: on demand (e.g.
+        data shared when it is requested), event-based
+        (e.g. data shared in the framework of a
+        competition or other event), or continuous (e.g.
+        26945 data shared continuously as it becomes
+        available)."></app-help-tag>
+        <app-help-tag dimension="Purpose of usage" explanation="primary  (i.e.  data  is  used  for
+        the purpose for which it was collected),
+        secondary  (i.e.  data  is  used  for  the  purpose
+        which  is  similar  to  the  one  for  which  it  was
+        collected), tertiary (i.e. data is used for a
+        different purpose than for which it was
+        collected), or end use (i.e. data is processed and
+        the  result  is  used  by  end  users)"></app-help-tag>
+        <app-help-tag dimension="Type of relationship" explanation="Besides multilateral data marketplaces, three
+        more types of data marketplaces exist: bilateral data marketplaces (one-to-one
+        matching), dispersal data marketplaces (one-to-many matching), and harvest data
+        marketplaces (many-to-one matching)"></app-help-tag>
+        <app-help-tag dimension="Benefits" explanation="In close relation to the main value is the dimension Main Outcome (D12), which concretizes the value gain of the value proposition for the customer. Regarding efficiency gains (C121), data-driven services lead to benefits such as cost reductions, time savings, or increased flexibility (Wünderlich et al. 2013). Improved quality (C122) describes, for example, the increased quality of manufactured products through data-driven quality control. Uncovering hidden links between disparate data sets and sifting vast data sources will create new insights (C123) based on unbiased and automated information and thus support business decisions (Blaschke et al. 2019). A new offering (C124), for example, is real-time analytics on highly variable human actions through action recognition. Since manufacturers struggle to measure the value of people, such new data-driven services can analyze activities and hence improve human-based operations"></app-help-tag>
+      </ul>
+    </div>
+  </div>
+</div>

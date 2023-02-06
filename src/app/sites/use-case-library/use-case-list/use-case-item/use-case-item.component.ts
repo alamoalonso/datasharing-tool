@@ -36,7 +36,7 @@ export class UseCaseItemComponent implements OnInit {
   ngOnInit() {
     this.useCaseProperties = Object.entries(this.useCase);
     this.clearedProperties = this.useCaseProperties.filter(item => (item[1] !== null && !this.blockedProps.includes(item[0])));
-    this.ID_normal = this.useCase.title.replace(/ /g, '');
+    this.ID_normal = this.useCase.title.replace(/ /g, '').replace(/\W/g, '');
     this.ID_hash = '#' + this.ID_normal;
   }
 
@@ -63,8 +63,11 @@ export class UseCaseItemComponent implements OnInit {
   computeFit() {
     let sim = Usecase.caseSimilarity(this.useCase, this.filterCase);
     sim = Math.round(sim * 100);
-
-    return sim + '%'
+    if(!isNaN(sim)){
+      return sim + '%'
+    } else{
+      return ""
+    }
   }
 
   addFav(){
