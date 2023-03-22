@@ -37,6 +37,7 @@ export class SearchFilterComponent {
   public control_authority = null;
 
   @Output() filterCase: EventEmitter<Usecase> = new EventEmitter<Usecase>();
+  @Output() sortBy: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('title') titleRef: ElementRef;
   @ViewChild('organization') orgRef: ElementRef;
@@ -131,6 +132,10 @@ export class SearchFilterComponent {
         this.control_authority
       )
     );
+  }
+
+  onSort(str){
+    this.sortBy.emit(str);
   }
 
   onFilterCases() {

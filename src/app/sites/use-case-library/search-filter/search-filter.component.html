@@ -52,7 +52,24 @@
 
 <div class="row">
   <div class="col-md-12 text-right">
-    <button class="btn btn-light" style="margin-right: 3px;" (click)="onClearFilter()">Clear filter</button>
+    <button class="btn btn-light" style="margin-right: 5px;" (click)="onClearFilter()">Clear filter</button>
+    <button class="btn btn-secondary dropdown-toggle" style="margin-right: 5px;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by
+    </button>
+    <div class="dropdown-menu">
+      <div class="form-check dropdown-item">
+        <input (click)="onSort('new')" class="form-check-input" type="radio" name="sort" value="new" id="new">
+        <label class="form-check-label" for="new">
+          <i class="fa-solid fa-arrow-up"></i> Newest
+        </label>
+      </div>
+      <div class="form-check dropdown-item">
+        <input (click)="onSort('old')" class="form-check-input" type="radio" name="sort" value="old" id="old">
+        <label class="form-check-label" for="old">
+          <i class="fa-solid fa-arrow-down"></i> Oldest
+        </label>
+      </div>
+    </div>
     <button class="btn btn-dark" (click)="onFilterCases()">Search</button>
   </div>
 </div>

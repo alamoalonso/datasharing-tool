@@ -54,23 +54,54 @@ export class UseCaseLibraryComponent{
   ];
   sortedCases: Usecase[] = this.useCases;
   filCase: Usecase = new Usecase(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null)
+  sort: string = 'new';
 
   updateFilCase(filCase: Usecase) {
     this.filCase = filCase;
     this.updateSortedCases();
   }
 
+  updateSort(sort: string) {
+    this.sort = sort;
+    this.updateSortedCases();
+  }
+
   updateSortedCases() {
+    console.log(0);
     this.sortedCases = this.useCases;
     const fc = this.filCase;
+    const so = this.sort;
     this.sortedCases = this.sortedCases.sort(function compare(a: Usecase, b: Usecase) {
-      if(Usecase.caseSimilarity(a, fc) < Usecase.caseSimilarity(b, fc) || isNaN(Usecase.caseSimilarity(a, fc))){
+      if(!isNaN(Usecase.caseSimilarity(a, fc)) && !isNaN(Usecase.caseSimilarity(b, fc))){
+        if(Usecase.caseSimilarity(a, fc) < Usecase.caseSimilarity(b, fc)){
+          return 1;
+        }
+        if(Usecase.caseSimilarity(a, fc) > Usecase.caseSimilarity(b, fc)){
+          return -1;
+        } else{
+          if(a.year_of_publication < b.year_of_publication){
+            if(so === 'new'){return 1;} else{return -1;};
+          }
+          if(a.year_of_publication > b.year_of_publication){
+            if(so === 'new'){return -1;} else{return 1;};
+          }
+          else{return 0;}
+        }
+      }
+      if(isNaN(Usecase.caseSimilarity(a, fc)) && !isNaN(Usecase.caseSimilarity(b, fc))){
         return 1;
       }
-      if(Usecase.caseSimilarity(a, fc) > Usecase.caseSimilarity(b, fc) || isNaN(Usecase.caseSimilarity(b, fc))){
+      if(!isNaN(Usecase.caseSimilarity(a, fc)) && isNaN(Usecase.caseSimilarity(b, fc))){
         return -1;
-      } else{
-        return 0;
+      }
+      else{
+        if(a.year_of_publication < b.year_of_publication){
+          if(so === 'new'){return 1;} else{return -1;};
+        }
+        if(a.year_of_publication > b.year_of_publication){
+          if(so === 'new'){return -1;} else{return 1;};
+        }
+        else{return 0;}
       }
     })
 
